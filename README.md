@@ -22,7 +22,11 @@ Check niyo [dito](https://documentation.bloomreach.com/engagement/docs/jinja-syn
 
 ### Debugging & testing
 Run niyo to sa CLI para ma-initialize yung `events.db`, assuming directory niyo nasa `event-management-website/`:
-`python backend/debug.py`
+```
+python backend/debug.py
+```
 
 Para matanggal lahat ng entries sa database:
-`python backend/debug.py --reset`
+```
+python backend/debug.py --reset
+```
