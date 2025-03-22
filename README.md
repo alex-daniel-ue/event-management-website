@@ -11,7 +11,7 @@
 - Jinja2 (Template engine)
 
 ## Setup
-1. Clone or download the repository ![Code > Download ZIP, or use Git](https://drive.google.com/file/d/10v2HA2h_dJwd8Mkx5uOPCHUhSEns6mB_/view) 
+1. Clone or download the repository ![Code > Download ZIP, or use Git](https://i.ibb.co/rKHRwYcv/tutorial.png) 
 2. Run `serve_website.bat`
 3. Enjoy
 
