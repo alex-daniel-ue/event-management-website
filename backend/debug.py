@@ -12,7 +12,10 @@ Functions:
 Usage:
 Run this module as a standalone script, using CLI. For example:
     python backend/debug.py
-If the -r or --reset flag is provided, it will execute reset().
+
+If the -r or --reset flag is appended, it will execute reset().
+    python backend/debug.py --reset
+
 Then it will execute initialize() then view_all().
 """
 
@@ -21,7 +24,7 @@ from common import *
 
 
 @events
-def initialize() -> None:
+def declare_events_table() -> None:
     events.cursor.execute("""
         CREATE TABLE IF NOT EXISTS events (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -32,12 +35,12 @@ def initialize() -> None:
     events.connection.commit()
 
 @events
-def reset() -> None:
+def reset_events_table() -> None:
     events.cursor.execute("DROP TABLE events;")
     events.connection.commit()
 
 @events
-def view_all() -> None:
+def select_all() -> None:
     records = events.cursor.execute("SELECT * FROM events;").fetchall()
     if records:
         print(*records, sep='\n')
@@ -51,7 +54,7 @@ if __name__ == "__main__":
     flags = parser.parse_args()
 
     if flags.reset:
-        reset()
+        reset_events_table()
         print("Reset 'events' table.")
-    initialize()
-    view_all()
+    declare_events_table()
+    select_all()
