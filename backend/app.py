@@ -9,9 +9,8 @@ app = flask.Flask(__name__,
 @app.route("/", methods=["POST", "GET"])
 def index():
     """
-    When a <form> element in any .html file has the attribute action="/", it calls this function since @app.route("/")
-    decorates it.
-    When it also has the attribute method="POST", flask.request.method = "POST".
+    When a <form> element in any .html file has the attribute action="/", it calls this function since @app.route("/") decorates it.
+    When a <form> element also has the attribute method="POST", flask.request.method becomes "POST".
     By default, refreshing or opening the website counts as the "GET" method.
     """
     
