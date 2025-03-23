@@ -8,10 +8,9 @@ def get_database(path: str):
     return sqlite3.connect(path)
 
 def events(func):
-    """
-    Decorator that manages database connection and cursor for the wrapped function.
+    """Decorator that manages database connection and cursor for the wrapped function.
+    
     Establishes a connection to the database, creates a cursor, and closes both after the function executes.
-
     Use events.connection and events.cursor for SQLite3 operations.
     """
 

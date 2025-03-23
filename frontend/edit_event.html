@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block head %}
+{% endblock %}
+
+{% block body %}
+<h1>Update "{{ event.name }}" Event</h1>
+
+<form action="/edit/{{event.id}}" method="POST">
+    <input type="text" name="name" value="{{event.name}}">
+    <input type="submit" value="Update Event">
+</form>
+{% endblock %}

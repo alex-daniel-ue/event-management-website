@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 
 {% block head %}
-<title>Event Management Website</title>
 {% endblock %}
 
 {% block body %}
@@ -19,7 +18,7 @@
             <td>{{ event.date_added }}</td>
             <td>
                 <a href="/delete/{{event.id}}">Delete</a><br>
-                <a href="">Update</a>
+                <a href="/edit/{{event.id}}">Update</a>
             </td>
         </tr>
     {% endfor %}
