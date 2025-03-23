@@ -2,6 +2,7 @@ import flask
 import models
 
 
+# Change the static folder or template folder if frontend wants to reorder file structure.
 app = flask.Flask(__name__,
                   static_folder="../frontend/assets",
                   template_folder='../frontend/')
@@ -39,6 +40,7 @@ def edit(id: int):
     
     current_event = models.Event.read("id = ?", id)[0]
     return flask.render_template("edit_event.html", event=current_event)
+
 
 if __name__ == "__main__":
     app.run(debug=True)

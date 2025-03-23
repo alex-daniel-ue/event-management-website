@@ -6,8 +6,8 @@ class Event:
 
     def __init__(self, id: int, name: str, date_added: str) -> None:
         """
-        This serves to ease front-end development, letting them reference the actual attributes like 'event.name' or 'event.date_added' in Jinja2.
-        Otherwise, without this, they have to write 'event[1]' or 'event[2]' respectively.
+        This serves to ease front-end development, allowing dot notation like "event.name" or "event.date_added" in Jinja.
+        Without this, they have to use bracket notation ("event[1]" or "event["name"]").
         """
         self.id = id
         self.name = name
@@ -36,7 +36,7 @@ class Event:
     @staticmethod
     @events
     def update(id: int, **attributes_to_values) -> None:
-        """ Here, attributes_to_values shows in function calls as name="New Event Name" or price=1500 """
+        """ Here, attributes_to_values shows in function calls as name="New Event Name" or price=1500. """
         # TODO: Replace id argument with filter argument, as that is more versatile
         # TODO: Also replace for loop with one better SQL query.
         for attribute, value in attributes_to_values.items():

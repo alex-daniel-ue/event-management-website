@@ -6,6 +6,9 @@
 {% block body %}
 <h1>Event Management Website</h1>
 
+{% if events|length < 1 %}
+<h4>There are currently no events.</h4>
+{% else %}
 <table>
     <tr>
         <th>Event</th>
@@ -23,6 +26,8 @@
         </tr>
     {% endfor %}
 </table>
+{% endif %}
+
 
 <form action="/" method="POST">
     <input type="text" name="name">

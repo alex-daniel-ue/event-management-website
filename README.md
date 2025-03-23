@@ -8,7 +8,7 @@
 - SQLite (Database)
 ### Frontend
 - HTML, CSS, JS
-- Jinja2 (Template engine)
+- Jinja (Template engine)
 
 ## Setup
 1. Clone or download the repository ![Code > Download ZIP, or use Git](https://i.ibb.co/rKHRwYcv/tutorial.png) 
@@ -16,7 +16,7 @@
 3. Enjoy
 
 ## Extra info
-### Jinja2
+### Jinja
 Same lang siya sa Python syntax, need siya para mapakita dynamically yung each event.
 Check niyo [dito](https://documentation.bloomreach.com/engagement/docs/jinja-syntax) for more info.
 
