@@ -7,7 +7,7 @@ app = flask.Flask(__name__,
                   template_folder='../frontend/')
 
 @app.route("/", methods=["POST", "GET"])
-def index():
+def root():
     """
     When a <form> element in any .html file has the attribute action="/", it calls this function since @app.route("/") decorates it.
     When a <form> element also has the attribute method="POST", flask.request.method becomes "POST".
@@ -21,6 +21,12 @@ def index():
             return flask.redirect("/")
     
     return flask.render_template("index.html", events=models.Event.select_all())
+
+@app.route("/delete/<int:id>")
+def delete(id: int):
+    models.Event.delete(id)
+    return flask.redirect("/")
+
 
 if __name__ == "__main__":
     app.run(debug=True)

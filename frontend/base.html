@@ -2,6 +2,8 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
+
+        <!-- url_for() is a function from the "flask" Python package. idk why di kailangan flask.url_for() -->
         <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
         {% block head %}{% endblock %}
     </head>
