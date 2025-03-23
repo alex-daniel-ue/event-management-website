@@ -47,6 +47,10 @@ class Event:
     @staticmethod
     @events
     def delete(id: int) -> None:
+        """Important to remember, deleting does NOT make earlier id values accessible.
+        For example, if you have ids [1, 2, 3, 4, 5] and you delete id = 3,
+        SQL will keep incrementing from 5 and use id = 6! So it becomes [1, 2, 4, 5, 6].
+        """
         # TODO: Replace this entirely with filter or better SQL command.
         events.cursor.execute("DELETE FROM events WHERE id = ?", (id,))
         events.connection.commit()
