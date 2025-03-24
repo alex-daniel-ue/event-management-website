@@ -1,2 +1,4 @@
 backend/__pycache__/
 backend/events.db
+backend/database.db
+.venv/

@@ -36,14 +36,11 @@ class Event:
             query += f" WHERE {filter}"
         
         if limit is not None:
-            def is_int(n): return type(n) is int
-            if not (1 <= len(limit) <= 2) or all(is_int, limit):
+            if (1 <= len(limit) <= 2) and all(isinstance(n, int) for n in limit):
+                query += f" LIMIT {','.join(map(str, limit))}" 
+            else:
                 raise ValueError("LIMIT keyword should have 1-2 ints: (LENGTH) or (OFFSET,LENGTH).")
-            
-            query += f" LIMIT {','.join(map(str, limit))}" 
-                
-
-        print(query, values)
+        
         with get_cursor() as cursor: 
             records = cursor.execute(query, values).fetchall()
         
@@ -67,10 +64,6 @@ class Event:
 
     @staticmethod
     def delete(id: int) -> None:
-        """Important to remember, deleting does NOT make earlier id values accessible.
-        For example, if you have ids [1, 2, 3, 4, 5] and you delete id = 3,
-        SQL will keep incrementing from 5 and use id = 6! So it becomes [1, 2, 4, 5, 6].
-        """
         # TODO: Replace this entirely with filter or better SQL query.
         with get_cursor() as cursor:
             cursor.execute("""
