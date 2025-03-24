@@ -1,22 +1,25 @@
 """
 debug.py
 
-This module provides debugging and testing functions for the 'events' table. 
+This module provides debugging and testing functions for the 'events' table in the SQLite database.
 
 Functions:
-- initialize: Creates the 'events' table if it doesn't exist.
-- reset: Drops the 'events' table.
-- view_all: Retrieves and prints all records from the 'events' table. If the table is empty,
-  it notifies the user.
+- initialize: Creates the 'events' and 'users' tables if they do not exist.
+- reset_table: Drops the specified table from the database.
+- select_all: Retrieves and prints all records from the specified table. If the table is empty, it notifies the user.
 
 Usage:
-Run this module as a standalone script, using CLI. For example:
-    python backend/debug.py
+Run this module as a standalone script using the command line interface (CLI). For example:
+    python backend/debug.py <table_name>
 
-If the -r or --reset flag is appended, it will execute reset().
-    python backend/debug.py --reset
+If the -r or --reset flag is appended, it will execute reset_table() for the specified table.
+    python backend/debug.py <table_name> --reset
 
-Then it will execute initialize() then view_all().
+After resetting, it will execute initialize() and then select_all() to display the current records in the table.
+
+Parameters:
+- table_name (str): The name of the table to be viewed or reset.
+- -r, --reset (optional): A flag indicating whether the specified table should be reset.
 """
 
 import argparse
