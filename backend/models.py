@@ -1,14 +1,16 @@
 from common import *
 
+
+# TODO: Does CRUD need to be in Event?
 class Event:
     # __slots__ restricts the possible class variables, improving memory usage
     __slots__ = ("id", "name", "date_added")
 
     def __init__(self, id: int, name: str, date_added: str) -> None:
-        """
-        This serves to ease front-end development, allowing dot notation like "event.name" or "event.date_added" in Jinja.
+        """This serves to ease front-end development, allowing dot notation like "event.name" or "event.date_added" in Jinja.
         Without this, they have to use bracket notation ("event[1]" or "event["name"]").
         """
+
         self.id = id
         self.name = name
         self.date_added = date_added
@@ -16,41 +18,62 @@ class Event:
 
 
     @staticmethod
-    @events
     def create(name: str) -> None:
-        events.cursor.execute("INSERT INTO events (name, date_added) VALUES (?, CURRENT_TIMESTAMP);", (name,))
-        events.connection.commit()
+        with get_cursor() as cursor:
+            cursor.execute("""
+                INSERT INTO events (name, date_added)
+                VALUES (?, CURRENT_TIMESTAMP);
+            """, (name,)
+            )
     
 
     @staticmethod
-    @events
-    def read(filter: str = "", *values) -> list:
-        command = "SELECT id, name, date_added FROM events"
-        if filter:
-            command = f"{command} WHERE {filter}"
+    def read(filter: str = None, *values, limit: tuple = None) -> list:
+        # TODO: Add table_name argument
+        query = f"SELECT id, name, date_added FROM events"
 
-        records = events.cursor.execute(command, values).fetchall()
+        if filter is not None:
+            query += f" WHERE {filter}"
+        
+        if limit is not None:
+            def is_int(n): return type(n) is int
+            if not (1 <= len(limit) <= 2) or all(is_int, limit):
+                raise ValueError("LIMIT keyword should have 1-2 ints: (LENGTH) or (OFFSET,LENGTH).")
+            
+            query += f" LIMIT {','.join(map(str, limit))}" 
+                
+
+        print(query, values)
+        with get_cursor() as cursor: 
+            records = cursor.execute(query, values).fetchall()
+        
+        # TODO: Change this when implemented users table
         return [Event(*record) for record in records]
 
 
     @staticmethod
-    @events
     def update(id: int, **attributes_to_values) -> None:
-        """ Here, attributes_to_values shows in function calls as name="New Event Name" or price=1500. """
         # TODO: Replace id argument with filter argument, as that is more versatile
-        # TODO: Also replace for loop with one better SQL query.
-        for attribute, value in attributes_to_values.items():
-            events.cursor.execute(f"UPDATE events SET {attribute} = ? WHERE id = ?", (value, id))
-        events.connection.commit()
+        attributes = [f"{attribute} = ?" for attribute in attributes_to_values.keys()]
+        values = attributes_to_values.values()
+
+        with get_cursor() as cursor:
+            cursor.execute(f"""
+                UPDATE events SET {', '.join(attributes)}
+                WHERE id = ?
+            """, (*values, id)
+            )
 
 
     @staticmethod
-    @events
     def delete(id: int) -> None:
         """Important to remember, deleting does NOT make earlier id values accessible.
         For example, if you have ids [1, 2, 3, 4, 5] and you delete id = 3,
         SQL will keep incrementing from 5 and use id = 6! So it becomes [1, 2, 4, 5, 6].
         """
-        # TODO: Replace this entirely with filter or better SQL command.
-        events.cursor.execute("DELETE FROM events WHERE id = ?", (id,))
-        events.connection.commit()
+        # TODO: Replace this entirely with filter or better SQL query.
+        with get_cursor() as cursor:
+            cursor.execute("""
+                DELETE FROM events WHERE id = ?
+            """, (id,)
+            )

@@ -16,30 +16,30 @@ def root():
     By default, refreshing or opening the website counts as the "GET" method.
     """
     
+    # TODO: Move this to a separate page! Maybe event_creation.html.
     match flask.request.method:
         case "POST":
             models.Event.create(flask.request.form["name"])
-            # Does redirect() makes flask.request.form = "GET", preventing duplicate entries?
             return flask.redirect("/")
     
     return flask.render_template("index.html", events=models.Event.read())
+
+
+@app.route("/update/<int:id>", methods=["GET", "POST"])
+def update(id: int):
+    match flask.request.method:
+        case "POST":
+            models.Event.update(id, **flask.request.form)
+            return flask.redirect("/")
+    
+    current_event = models.Event.read("id = ?", id, limit=(1,))[0]
+    return flask.render_template("update_event.html", event=current_event)
 
 
 @app.route("/delete/<int:id>")
 def delete(id: int):
     models.Event.delete(id)
     return flask.redirect("/")
-
-
-@app.route("/edit/<int:id>", methods=["GET", "POST"])
-def edit(id: int):
-    match flask.request.method:
-        case "POST":
-            models.Event.update(id, **flask.request.form)
-            return flask.redirect("/")
-    
-    current_event = models.Event.read("id = ?", id)[0]
-    return flask.render_template("edit_event.html", event=current_event)
 
 
 if __name__ == "__main__":
