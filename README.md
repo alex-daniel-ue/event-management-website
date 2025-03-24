@@ -10,6 +10,10 @@
 - HTML, CSS, JS
 - Jinja (Template engine)
 
+## Requirements
+- Python 3.12
+- pip (Python package manager)
+
 ## Setup
 1. Clone or download the repository ![Code > Download ZIP, or use Git](https://i.ibb.co/rKHRwYcv/tutorial.png) 
 2. Run `serve_website.bat`
@@ -21,12 +25,12 @@ Same lang siya sa Python syntax, need siya para mapakita dynamically yung each e
 Check niyo [dito](https://documentation.bloomreach.com/engagement/docs/jinja-syntax) for more info.
 
 ### Debugging & testing
-Run niyo to sa CLI para ma-initialize yung `events.db`, assuming directory niyo nasa `event-management-website/`:
+Run niyo to sa CLI para ma-initialize yung `database.db` (and `events` table), assuming directory niyo nasa `event-management-website/`:
 ```
 python backend/debug.py
 ```
 
-Para matanggal lahat ng entries sa database:
+Para matanggal lahat ng entries sa `events` table:
 ```
-python backend/debug.py --reset
+python backend/debug.py events --reset
 ```
