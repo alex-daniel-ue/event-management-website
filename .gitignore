@@ -1,4 +1,6 @@
+.venv/
+.vscode/
 backend/__pycache__/
+backend/routes/__pycache__/ 
 backend/events.db
 backend/database.db
-.venv/

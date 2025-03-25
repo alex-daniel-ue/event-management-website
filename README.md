@@ -25,12 +25,11 @@ Same lang siya sa Python syntax, need siya para mapakita dynamically yung each e
 Check niyo [dito](https://documentation.bloomreach.com/engagement/docs/jinja-syntax) for more info.
 
 ### Debugging & testing
-Run niyo to sa CLI para ma-initialize yung `database.db` (and `events` table), assuming directory niyo nasa `event-management-website/`:
+- Para ma-view lahat ng records sa `events` table:
 ```
-python backend/debug.py
+python backend/debug_db.py events
 ```
-
-Para matanggal lahat ng entries sa `events` table:
+- Para matanggal lahat ng entries sa `events` table:
 ```
-python backend/debug.py events --reset
+python backend/debug_db.py events --reset
 ```
