@@ -9,15 +9,15 @@ nav {
     justify-content: space-between;
     background-color: #f8f8f8;
     padding: 10px 20px;
-}
 
-.search-bar {
-    width: 300px;
-    padding: 5px;
+    .search-bar {
+        width: 300px;
+        padding: 5px;
+    }
 }
 
 .banner {
-    background: url('banner.jpg') no-repeat center center;
+    background: url('../assets/images/banner.jpg') no-repeat center center;
     background-size: cover;
     color: white;
     text-align: center;
@@ -30,7 +30,7 @@ nav {
     gap: 20px;
     padding: 20px;
 
-    .category {
+    div {
         padding: 10px;
         border: 1px solid #ccc;
         border-radius: 5px;

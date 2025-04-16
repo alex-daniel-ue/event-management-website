@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/index.css">
+
+    <title>UEvents</title>
+
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            gap: 5vh;
+        }
+
+        section:not(.banner) {
+            display: flex;
+
+            height: 45vh;
+            padding: 5vh 10vw;
+
+            > * { /* All direct children */
+                flex: 1;
+                margin: auto; /* Vertically and horizontally centers content */
+            }
+            
+            figure {
+                margin: initial;
+                flex: 1.5; /* Takes up 1.5x more space than other flex siblings */
+            }
+
+            figure:not(:first-child), .cta { text-align: center; }
+            figure:last-child { text-align: right; }
+        }
+
+        img {
+            height: 100%;
+            object-fit: contain;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <h2>UEvents</h2>
+        <input type="text" class="search-bar" placeholder="Search events">
+    </nav>
+
+    <section class="banner">
+        <h1>Find the Music You Love</h1>
+        <button>Get Into Shows</button>
+    </section>
+
+    <section>
+        <div class="cta">
+            <h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h1>
+            <button>Call to Action</button>
+        </div>
+
+        <figure>
+            <img src="https://picsum.photos/450/250">
+        </figure>
+    </section>
+    <section>
+        <figure>
+            <img src="https://picsum.photos/450/250">
+        </figure>
+
+        <div class="list">
+            <h2>Create Events</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean dapibus, nisi blandit.</p>
+
+            <h2>Lorem Ipsum</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean dapibus, nisi blandit.</p>
+
+            <h2>Join Events</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean dapibus, nisi blandit.</p>
+        </div>
+    </section>
+    <section>
+        <div class="list">
+            <h2>Create Events</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean dapibus, nisi blandit.</p>
+
+            <h2>Lorem Ipsum</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean dapibus, nisi blandit.</p>
+            
+            <h2>Join Events</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean dapibus, nisi blandit.</p>
+        </div>
+
+        <figure>
+            <img src="https://picsum.photos/450/250">
+        </figure>
+    </section>
+    <section>
+        <figure>
+            <img src="https://picsum.photos/450/250">
+        </figure>
+
+        <div class="cta">
+            <h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h1>
+            <button>Call to Action</button>
+        </div>
+    </section>
+</body>
+</html>
