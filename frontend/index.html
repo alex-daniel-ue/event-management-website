@@ -1,38 +1,90 @@
-{% extends "base.html" %}
-
-{% block head %}
-{% endblock %}
-
-{% block body %}
-<h1>Event Management Website</h1>
-
-{% if events|length < 1 %}
-<h4>There are currently no events.</h4>
-{% else %}
-<table>
-    <tr>
-        <th>Event</th>
-        <th>Added</th>
-        <th>Actions</th>
-    </tr>
-    {% for event in events %}
-        <tr>
-            <td>{{ event.name }}</td>
-            <td>{{ event.date_added }}</td>
-            <td>
-                <a href="/delete/{{event.id}}">Delete</a><br>
-                <a href="/update/{{event.id}}">Update</a>
-            </td>
-        </tr>
-    {% endfor %}
-</table>
-{% endif %}
-
-
-<form action="/" method="POST">
-    <input type="text" name="name">
-    <input type="submit" value="Add Event">
-</form>
-
-<img src="{{ url_for('static', filename='images/site_structure.png') }}">
-{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>asdasdasd</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            background-color: #f8f8f8;
+            padding: 10px 20px;
+        }
+        .search-bar {
+            width: 300px;
+            padding: 5px;
+        }
+        .banner {
+            background: url('banner.jpg') no-repeat center center;
+            background-size: cover;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+        .categories {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+        .category {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .events {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+        .event {
+            width: 250px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <h2>Eventbrite</h2>
+        <input type="text" class="search-bar" placeholder="Search events">
+    </div>
+    <div class="banner">
+        <h1>Find the Music You Love</h1>
+        <button>Get Into Shows</button>
+    </div>
+    <div class="categories">
+        <div class="category">Music</div>
+        <div class="category">Nightlife</div>
+        <div class="category">Performing Arts</div>
+        <div class="category">Business</div>
+        <div class="category">Food & Drink</div>
+    </div>
+    <div class="events">
+        <div class="event">
+            <h3>100 Cities Project</h3>
+            <p>Monday, 8:00 PM - Manila</p>
+            <p>From $23.18</p>
+        </div>
+        <div class="event">
+            <h3>Scavenger Hunt</h3>
+            <p>Tomorrow, 8:00 AM - Chinatown</p>
+            <p>From $14.99</p>
+        </div>
+        <div class="event">
+            <h3>200 Cities Project</h3>
+            <p>Wednesday, 8:00 PM - Cubao</p>
+            <p>From $23.18</p>
+        </div>
+    </div>
+</body>
+</html>
