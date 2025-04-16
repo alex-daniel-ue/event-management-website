@@ -3,16 +3,19 @@ body {
     margin: 0;
     padding: 0;
 }
-.navbar {
+
+nav {
     display: flex;
     justify-content: space-between;
     background-color: #f8f8f8;
     padding: 10px 20px;
 }
+
 .search-bar {
     width: 300px;
     padding: 5px;
 }
+
 .banner {
     background: url('banner.jpg') no-repeat center center;
     background-size: cover;
@@ -20,27 +23,31 @@ body {
     text-align: center;
     padding: 100px 20px;
 }
+
 .categories {
     display: flex;
     justify-content: center;
     gap: 20px;
     padding: 20px;
+
+    .category {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        cursor: pointer;
+    }
 }
-.category {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    cursor: pointer;
-}
+
 .events {
     display: flex;
     justify-content: center;
     gap: 20px;
     padding: 20px;
-}
-.event {
-    width: 250px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+
+    article {
+        width: 250px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
 }
