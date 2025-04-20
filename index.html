@@ -1,46 +1,289 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/index.css">
-
-    <title>UEvents</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UEvents - Event Navigation</title>
+  <link rel="stylesheet" href="index.css" />
 </head>
 <body>
-    <nav>
-        <h2>UEvents</h2>
-        <input type="text" class="search-bar" placeholder="Search events">
+
+
+  <header>
+    <nav class="navbar">
+      <div class="logo">UEvents</div>
+      <div class="search-container">
+        <input type="text" placeholder="Search events" />
+        <input type="text" placeholder="Search Location" />
+        <button class="search-button">Search</button>
+      </div>
+      <div class="menu">
+        <div class="dropdown">
+          <a href="services.html">Our Services</a>
+          <div class="dropdown-content">
+            <a href="events.html">Events</a>
+            <a href="Create.html">Create Events</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <a href="tickets.html">My Tickets</a>
+          <div class="dropdown-content">
+            <a href="tickets.html">Tickets</a>
+            <a href="cart.html">Purchase Tickets</a>
+          </div>
+        </div>
+      
+        <div class="dropdown">
+          <a href="help.html">Help Center</a>
+          <div class="dropdown-content">
+            <a href="help.html">Help Center</a>
+            <a href="FAQ.html">FAQs</a>
+            <a href="contactorg.html">Contact Event Organizers</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <a href="info.html">About Us</a>
+          <div class="dropdown-content">
+            <a href="Info.html">Who We Are</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="PTS.html">Privacy and Terms</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <a href="account.html">My Account</a>
+          <div class="dropdown-content">
+            <a href="#" id="openSignup">Sign Up</a>
+            <a href="#" id="openLogin">Login</a> 
+          </div>
+        </div>
+        
+      </div>
     </nav>
+  </header>
 
-    <section class="banner">
-        <h1>Find the Music You Love</h1>
-        <button>Get Into Shows</button>
-    </section>
-    
-    <section class="categories">
-        <div>Music</div>
-        <div>Nightlife</div>
-        <div>Performing Arts</div>
-        <div>Business</div>
-        <div>Food & Drink</div>
-    </section>
+<div id="loginModal" class="modal">
+  <form class="modal-content">
+    <div class="container">
+      <span class="close" id="closeLogin">X</span>
+      <h2 style="color: #c31835;">Login</h2>
+      <p>Please enter your credentials to log in.</p>
+      <hr>
 
-    <section class="events">
-        <article>
-            <h3>100 Cities Project</h3>
-            <p>Monday, 8:00 PM - Manila</p>
-            <p>From $23.18</p>
-        </article>
-        <article>
-            <h3>Scavenger Hunt</h3>
-            <p>Tomorrow, 8:00 AM - Chinatown</p>
-            <p>From $14.99</p>
-        </article>
-        <article>
-            <h3>200 Cities Project</h3>
-            <p>Wednesday, 8:00 PM - Cubao</p>
-            <p>From $23.18</p>
-        </article>
-    </section>
+      <label for="login-email"><b>Email</b></label>
+      <input type="text" placeholder="Enter Email" name="login-email" required>
+
+      <label for="login-psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="login-psw" required>
+
+      <div class="clearfix">
+        <button type="submit" class="signupbtn">Login</button>
+        <button type="button" class="cancelbtn">Cancel</button>
+      </div>
+    </div>
+  </form>
+</div>
+<div id="signupModal" class="modal">
+  <form class="modal-content">
+    <div class="container">
+      <span class="close" id="closeSignup">X</span>
+      <h2 style="color: #c31835;">Sign Up</h2>
+      <p>Please fill in this form to create an account.</p>
+      <hr>
+
+      <label for="signup-name"><b>Full Name</b></label>
+      <input type="text" placeholder="Enter Full Name" name="signup-name" required>
+
+      <label for="signup-email"><b>Email</b></label>
+      <input type="text" placeholder="Enter Email" name="signup-email" required>
+
+      <label for="signup-psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="signup-psw" required>
+
+      <label for="signup-psw-repeat"><b>Confirm Password</b></label>
+      <input type="password" placeholder="Repeat Password" name="signup-psw-repeat" required>
+
+      <div class="clearfix">
+        <button type="submit" class="signupbtn">Sign Up</button>
+        <button type="button" class="cancelbtn">Cancel</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+
+  <main>
+    <div class="container">
+      <h1>Welcome to UEvents</h1>
+      <p>Your one-stop solution for all event needs.</p>
+      <p>Explore, create, and manage events with ease.</p>
+
+
+      <div class="slider-container">
+        <div class="slider">
+          <div class="slide"><img src="https://i.pinimg.com/736x/e1/d2/25/e1d225782ae0adf9f4b09839d43d2b5f.jpg" alt="Taylor Swift"></div>
+          <div class="slide"><img src="https://a.storyblok.com/f/178900/1920x1080/73393b35df/ado-hibana-world-tour.png" alt="Music Concert"></div>
+          <div class="slide"><img src="https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F951006023%2F1371311099543%2F1%2Foriginal.20250203-040050?crop=focalpoint&fit=crop&w=940&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.885880077369&fp-y=0.492307692308&s=9e5c4ad63d9507ec0b9eff2259131176" alt="Food Festival"></div>
+        </div>
+        <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+        <button class="next" onclick="moveSlide(1)">&#10095;</button>
+      </div>
+
+      <button>Get Started</button>
+
+      <h1 style="font-size: 30px;">Categories</h1>
+      <div class="categories-container">
+        <div class="category-item"><img src="icon/music.svg" alt="Music"><p>Music</p></div>
+        <div class="category-item"><img src="icon/night-life.svg" alt="Nightlife"><p>Nightlife</p></div>
+        <div class="category-item"><img src="icon/performing-arts.svg" alt="Performing & Visual Arts"><p>Performing & Visual Arts</p></div>
+        <div class="category-item"><img src="icon/holidat.svg" alt="Holidays"><p>Holidays</p></div>
+        <div class="category-item"><img src="icon/dating.svg" alt="Dating"><p>Dating</p></div>
+        <div class="category-item"><img src="icon/hobbies.svg" alt="Hobbies"><p>Hobbies</p></div>
+        <div class="category-item"><img src="icon/business.svg" alt="Business"><p>Business</p></div>
+        <div class="category-item"><img src="icon/food.svg" alt="Food & Drink"><p>Food & Drink</p></div>
+      </div>
+
+<section class="featured-events">
+    <h2>Featured Events</h2>
+    <div class="event-list horizontal-scroll">
+      <div class="event-card">
+        <img src="https://source.unsplash.com/random/300x200?festival" alt="Event 1">
+        <h3>Global Festival 2025</h3>
+        <p>Join the biggest cultural celebration in the heart of the city.</p>
+        <button class="cta-button">Learn More</button>
+      </div>
+      <div class="event-card">
+        <img src="https://source.unsplash.com/random/300x200?conference" alt="Event 2">
+        <h3>Startup Summit</h3>
+        <p>Where innovation meets opportunity. Meet top tech founders.</p>
+        <button class="cta-button">Learn More</button>
+      </div>
+      <div class="event-card">
+        <img src="https://source.unsplash.com/random/300x200?art" alt="Event 3">
+        <h3>Art in Motion</h3>
+        <p>An immersive experience with live artists, music, and visuals.</p>
+        <button class="cta-button">Learn More</button>
+      </div>
+      <div class="event-card">
+        <img src="https://source.unsplash.com/random/300x200?party" alt="Event 4">
+        <h3>Midnight Rooftop Bash</h3>
+        <p>Dress up. Show up. Dance under the stars.</p>
+        <button class="cta-button">Learn More</button>
+      </div>
+      <div class="event-card">
+        <img src="https://source.unsplash.com/random/300x200?expo" alt="Event 5">
+        <h3>Design Expo 2025</h3>
+        <p>Showcasing the future of architecture and innovation.</p>
+        <button class="cta-button">Learn More</button>
+      </div>
+      <div class="event-card">
+        <img src="https://source.unsplash.com/random/300x200?technology" alt="Event 6">
+        <h3>Tech Future Talk</h3>
+        <p>Explore AI, Robotics, and the future of work.</p>
+        <button class="cta-button">Learn More</button>
+      </div>
+    </div>
+  </section>
+  <section class="featured-events">
+    <h2>Music Events</h2>
+    <div class="event-list horizontal-scroll">
+      <div class="event-card">
+        <img src="https://source.unsplash.com/random/300x200?concert" alt="Music 1">
+        <h3>Live at The Dome</h3>
+        <p>Electric guitar, live drums, and a crowd that never stops moving.</p>
+        <button class="cta-button">Learn More</button>
+      </div>
+      <div class="event-card">
+        <img src="https://source.unsplash.com/random/300x200?jazz" alt="Music 2">
+        <h3>Jazz Nights</h3>
+        <p>Smooth melodies and classic cocktails await.</p>
+        <button class="cta-button">Learn More</button>
+      </div>
+      <div class="event-card">
+        <img src="https://source.unsplash.com/random/300x200?dj" alt="Music 3">
+        <h3>Sunset Rave</h3>
+        <p>Feel the beat with the city's top DJs by the bay.</p>
+        <button class="cta-button">Learn More</button>
+      </div>
+      <div class="event-card">
+        <img src="https://source.unsplash.com/random/300x200?band" alt="Music 4">
+        <h3>Acoustic Sessions</h3>
+        <p>Unplugged talent under warm café lights.</p>
+        <button class="cta-button">Learn More</button>
+      </div>
+      <div class="event-card">
+        <img src="https://source.unsplash.com/random/300x200?music" alt="Music 5">
+        <h3>Indie Vibes Night</h3>
+        <p>Discover underground sounds from rising artists.</p>
+        <button class="cta-button">Learn More</button>
+      </div>
+    </div>
+  </section>
+  
+  <section class="featured-events">
+    <h2>Musicals & Theater</h2>
+    <div class="event-list horizontal-scroll">
+      <div class="event-card">
+        <img src="https://source.unsplash.com/random/300x200?theater" alt="Musical 1">
+        <h3>Dear Christ Everhansen</h3>
+        <p>A heartwarming story of love, loss, and redemption.</p>
+        <button class="cta-button">Learn More</button>
+      </div>
+      <div class="event-card">
+        <img src="https://source.unsplash.com/random/300x200?musical" alt="Musical 2">
+        <h3>Phantom Returns</h3>
+        <p>The classic tale reborn with a modern twist.</p>
+        <button class="cta-button">Learn More</button>
+      </div>
+      <div class="event-card">
+        <img src="https://source.unsplash.com/random/300x200?broadway" alt="Musical 3">
+        <h3>Broadway in Manila</h3>
+        <p>Experience Broadway's magic brought to local stages.</p>
+        <button class="cta-button">Learn More</button>
+      </div>
+      <div class="event-card">
+        <img src="https://source.unsplash.com/random/300x200?opera" alt="Musical 4">
+        <h3>The Velvet Opera</h3>
+        <p>A bold reimagining of classic arias.</p>
+        <button class="cta-button">Learn More</button>
+      </div>
+      <div class="event-card">
+        <img src="https://source.unsplash.com/random/300x200?drama" alt="Musical 5">
+        <h3>Midnight Tragedy</h3>
+        <p>Dark secrets unfold in this gripping thriller.</p>
+        <button class="cta-button">Learn More</button>
+      </div>
+      <div class="event-card">
+        <img src="https://source.unsplash.com/random/300x200?show" alt="Musical 6">
+        <h3>Lights! Curtain! Magic!</h3>
+        <p>A family-friendly musical with dazzling effects.</p>
+        <button class="cta-button">Learn More</button>
+      </div>
+    </div>
+  </section>
+  
+  
+     <section class="newsletter">
+        <h2>Stay Updated</h2>
+        <p>Subscribe to get the latest event news and offers.</p>
+        <form>
+          <input type="email" placeholder="Enter your email">
+          <button type="submit">Subscribe</button>
+        </form>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2025 UEvents. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="PTS.html">Privacy & Terms</a>
+        <a href="contact.html">Contact</a>
+        <a href="FAQ.html">FAQs</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="index.js"></script>
 </body>
 </html>
